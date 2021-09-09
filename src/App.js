@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Header } from "./components/Header";
 import { Filters } from "./components/Filters";
-import { Main } from "./components/Main";
+import { ProductListing } from "./components/ProductListing";
+import { Cart } from "./components/Cart";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
           <Filters />
         </div>
         <div className="main">
-          <Main />
+          <ProductListing />
+          <Cart />
         </div>
       </div>
     </div>

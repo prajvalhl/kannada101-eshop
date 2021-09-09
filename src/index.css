@@ -1,19 +1,40 @@
+html {
+  scroll-padding-top: 7rem;
+}
+
+body {
+  margin: 0;
+}
+
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-auto-rows: minmax(100px, auto);
 }
 
 .header {
   grid-column: 1/4;
+  position: fixed;
+  width: 100%;
+  height: 7rem;
+  background-color: red;
+  z-index: 1;
 }
 
 .side-menu {
-  grid-column: 1/2;
-  grid-row: auto;
+  grid-column: 1;
+  background-color: green;
+  overflow: auto;
+  height: 87vh;
+  position: fixed;
+  width: 250px;
+  padding-top: 7rem;
+  margin-bottom: 5rem;
 }
 
 .main {
   grid-column: 2/4;
+  background-color: blue;
+  width: 100%;
+  padding-top: 7rem;
 }
