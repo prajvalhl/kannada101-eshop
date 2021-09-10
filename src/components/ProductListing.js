@@ -37,7 +37,6 @@ function getFliteredData1(
 }
 
 function getFliteredData2(productsList, rangeVal) {
-  console.log(rangeVal);
   return productsList.filter(({ price }) => price < rangeVal);
 }
 
@@ -116,7 +115,7 @@ export function ProductListing() {
               max="1000"
               value={rangeVal}
               onChange={(e) =>
-                dispatch({ type: "RANGE_SLIDER", payload: e.target.value })
+                dispatchLocal({ type: "RANGE_SLIDER", payload: e.target.value })
               }
             />
           </label>
