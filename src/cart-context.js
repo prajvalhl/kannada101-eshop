@@ -37,9 +37,15 @@ function cartReducer(state, payload) {
         item.id === payload.id ? { ...item, quantity: item.quantity + 1 } : item
       );
     case "DECREMENT":
-      return state.map((item) =>
-        item.id === payload.id ? { ...item, quantity: item.quantity - 1 } : item
-      );
+      if (payload.itemDetail.quantity !== 0) {
+        return state.map((item) =>
+          item.id === payload.itemDetail.id
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        );
+      } else {
+        return state.filter((item) => item.id !== payload.itemDetail.id);
+      }
     case "REMOVE":
       return state.filter((item) => item.id !== payload.id);
     default:

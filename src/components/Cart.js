@@ -1,5 +1,5 @@
 import React from "react";
-import { useCart } from "../cart-context";
+import { CartProvider, useCart } from "../cart-context";
 
 export function Cart() {
   const { state, dispatch } = useCart();
@@ -22,7 +22,12 @@ export function Cart() {
             </button>
             <span>{cart.quantity}</span>
             <button
-              onClick={() => dispatch({ type: "DECREMENT", id: cart.id })}
+              onClick={() =>
+                dispatch({
+                  type: "DECREMENT",
+                  itemDetail: { id: cart.id, quantity: cart.quantity },
+                })
+              }
             >
               -
             </button>
