@@ -1,53 +1,156 @@
-import React, { useState } from "react";
-const data = [
-  { id: 1, name: "item 1" },
-  { id: 2, name: "item 2" },
-];
+import React, { useReducer } from "react";
+import { data } from "../data";
+import { useCart } from "../cart-context";
+
+function sortProducts(state, action) {
+  switch (action.type) {
+    case "SORT":
+      return { ...state, sortBy: action.payload };
+    case "TOGGLE_INVENTORY":
+      return { ...state, showInventoryAll: !state.showInventoryAll };
+    case "TOGGLE_DELIVERY":
+      return { ...state, showFastDeliveryOnly: !state.showFastDeliveryOnly };
+    case "RANGE_SLIDER":
+      return { ...state, rangeVal: Number(action.payload) };
+    default:
+      return state;
+  }
+}
+
+function getSortedData(productsList, sortBy) {
+  if (sortBy && sortBy === "PRICE_LOW_TO_HIGH") {
+    return productsList.sort((a, b) => a.price - b.price);
+  }
+  if (sortBy && sortBy === "PRICE_HIGH_TO_LOW") {
+    return productsList.sort((a, b) => b.price - a.price);
+  }
+  return productsList;
+}
+
+function getFliteredData1(
+  productsList,
+  { showInventoryAll, showFastDeliveryOnly }
+) {
+  return productsList
+    .filter(({ fastDelivery }) => (showFastDeliveryOnly ? fastDelivery : true))
+    .filter(({ inStock }) => (showInventoryAll ? true : inStock));
+}
+
+function getFliteredData2(productsList, rangeVal) {
+  console.log(rangeVal);
+  return productsList.filter(({ price }) => price < rangeVal);
+}
 
 export function ProductListing() {
-  const [cart, setCart] = useState([]);
+  const { dispatch } = useCart();
+
+  const [
+    { showInventoryAll, showFastDeliveryOnly, sortBy, rangeVal },
+    dispatchLocal,
+  ] = useReducer(sortProducts, {
+    showInventoryAll: true,
+    showFastDeliveryOnly: false,
+    sortBy: null,
+    rangeVal: 1000,
+  });
+
+  const sortedData = getSortedData(data, sortBy);
+  const filter1 = getFliteredData1(sortedData, {
+    showInventoryAll,
+    showFastDeliveryOnly,
+  });
+  const filteredData = getFliteredData2(filter1, rangeVal);
+
   return (
     <div>
-      <h1>kannada101-Products</h1>
-      {data.map((prod) => (
-        <div key={prod.id}>
-          <h3>{prod.name}</h3>
-          <button
-            onClick={() =>
-              setCart((prevCart) => {
-                if (prevCart.length) {
-                  console.log("prevCart is not empty");
-
-                  let duplicateItem = prevCart.find(
-                    (item) => item.id === prod.id
-                  );
-                  if (duplicateItem) {
-                    return prevCart.map((item) =>
-                      item.id === duplicateItem.id
-                        ? {
-                            ...duplicateItem,
-                            quantity: duplicateItem.quantity + 1,
-                          }
-                        : item
-                    );
-                  } else {
-                    console.log("duplicate not found");
-                    return [
-                      ...prevCart,
-                      { ...prod, quantity: (prod.quantity || 0) + 1 },
-                    ];
+      <div>
+        <fieldset>
+          <legend>Sort By</legend>
+          <label>
+            <input
+              type="radio"
+              name="sort"
+              onChange={() =>
+                dispatchLocal({ type: "SORT", payload: "PRICE_LOW_TO_HIGH" })
+              }
+              checked={sortBy && sortBy === "PRICE_LOW_TO_HIGH"}
+            />
+            Price - Low to High
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="sort"
+              onChange={() =>
+                dispatchLocal({ type: "SORT", payload: "PRICE_HIGH_TO_LOW" })
+              }
+              checked={sortBy && sortBy === "PRICE_HIGH_TO_LOW"}
+            />
+            Price - High to Low
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>Filters</legend>
+          <label>
+            <input
+              type="checkbox"
+              onChange={() => dispatchLocal({ type: "TOGGLE_INVENTORY" })}
+              checked={showInventoryAll}
+            />
+            Include Out of Stock
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              onChange={() => dispatchLocal({ type: "TOGGLE_DELIVERY" })}
+              checked={showFastDeliveryOnly}
+            />
+            Fast Delivery Only
+          </label>
+          <br />
+          <label>
+            Price Range
+            <input
+              type="range"
+              min="50"
+              max="1000"
+              value={rangeVal}
+              onChange={(e) =>
+                dispatch({ type: "RANGE_SLIDER", payload: e.target.value })
+              }
+            />
+          </label>
+        </fieldset>
+      </div>
+      <div>
+        <h1>Kannada101-Products</h1>
+        <div className="all-products">
+          {filteredData.map((prod) => (
+            <div key={prod.id} className="product">
+              <img
+                src={prod.image}
+                width="150px"
+                height="auto"
+                alt={prod.name}
+              />
+              <h3>{prod.name}</h3>
+              <small>by {prod.brand}</small>
+              <div>Rating: {prod.ratings}</div>
+              <p>{prod.inStock ? "In Stock" : "Out Of Stock"}</p>
+              <div className="product-bottom">
+                <p>Rs. {prod.price}</p>
+                <button
+                  onClick={() =>
+                    dispatch({ type: "ADD_TO_CART", product: prod })
                   }
-                } else {
-                  console.log("prevCart is empty");
-                  return [{ ...prod, quantity: (prod.quantity || 0) + 1 }];
-                }
-              })
-            }
-          >
-            add to cart
-          </button>
+                >
+                  add to cart
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }
