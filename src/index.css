@@ -1,40 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
 html {
   scroll-padding-top: 7rem;
 }
 
 body {
   margin: 0;
+  font-family: "Roboto", sans-serif;
 }
 
-.wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-auto-rows: minmax(100px, auto);
+button {
+  font-family: "Roboto", sans-serif;
 }
 
 .header {
-  grid-column: 1/4;
-  position: fixed;
-  width: 100%;
-  height: 7rem;
   background-color: red;
-  z-index: 1;
 }
 
-.side-menu {
-  grid-column: 1;
-  background-color: green;
-  overflow: auto;
-  height: 87vh;
-  position: fixed;
-  width: 250px;
-  padding-top: 7rem;
-  margin-bottom: 5rem;
+.side-filters {
+  background-color: lightgreen;
 }
 
 .main {
-  grid-column: 2/4;
-  background-color: blue;
-  width: 100%;
-  padding-top: 7rem;
+  background-color: lightblue;
+}
+
+/* product */
+
+.product {
+  border: 1px solid black;
+  border-radius: 0 0 0 0.5rem;
+  width: 12rem;
+  padding: 1rem 1rem 0 1rem;
+  margin: 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.product h3 {
+  margin-block-end: 0;
+}
+
+.product div {
+  margin: 1rem 0;
+}
+
+.product .product-bottom {
+  margin-top: 2rem;
+}
+
+.product-bottom button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.product-bottom p {
+  position: absolute;
+  bottom: -1rem;
+}
+
+.all-products {
+  display: flex;
+  flex-wrap: wrap;
 }
