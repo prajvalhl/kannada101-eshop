@@ -123,9 +123,9 @@ export function ProductListing() {
       </div>
       <div>
         <h1>Kannada101-Products</h1>
-        <div className="all-products">
+        <div className="all-items">
           {filteredData.map((prod) => (
-            <div key={prod.id} className="product">
+            <div key={prod.id} className="item">
               <img
                 src={prod.image}
                 width="150px"
