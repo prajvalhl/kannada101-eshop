@@ -17,7 +17,7 @@ button {
   font-family: "Roboto", sans-serif;
 }
 
-/* product */
+/* productsListings */
 
 .all-items {
   display: flex;
@@ -44,8 +44,10 @@ button {
   background-color: var(--cart-btn);
 }
 
+/* cart items */
+
 .card-horizontal {
-  margin: 1rem;
+  margin: 1rem auto;
 }
 
 .card-horizontal img {
@@ -70,9 +72,22 @@ button {
   background-color: var(--border-color);
 }
 
+.btn-show-cart {
+  position: relative;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-show-cart .icon-badge {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
 @media (max-width: 500px) {
   .card-horizontal {
     flex-direction: column;
+    width: 252px;
   }
 
   .horizontal-rating {
@@ -82,5 +97,16 @@ button {
 
   .total-inCart {
     width: 7rem;
+  }
+
+  .all-cart-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .h-remove {
+    margin-left: 0;
+    font-size: 1rem;
   }
 }

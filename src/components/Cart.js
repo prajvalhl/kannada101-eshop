@@ -11,7 +11,7 @@ export function Cart() {
   return (
     <div>
       <h1>Cart Total: {total}</h1>
-      <div className="all-items">
+      <div className="all-cart-items">
         {state.map((cart) => (
           <div key={cart.id} className="card-horizontal">
             <img src={cart.image} alt={cart.name} />

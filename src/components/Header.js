@@ -8,10 +8,11 @@ export function Header() {
 
   return (
     <div>
-      <button onClick={() => setRoute("product")}>
-        <h1>Kannada101</h1>
+      <h1 onClick={() => setRoute("product")}>Kannada101</h1>
+      <button onClick={() => setRoute("cart")} className="btn-show-cart">
+        <span class="material-icons"> shopping_cart </span>
+        <span class="icon-badge">{state.length}</span>
       </button>
-      <button onClick={() => setRoute("cart")}>Cart: {state.length}</button>
     </div>
   );
 }
