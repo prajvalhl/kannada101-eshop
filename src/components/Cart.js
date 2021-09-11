@@ -11,7 +11,6 @@ export function Cart() {
 
   return (
     <div>
-      <h1>Cart Total: ₹{total}</h1>
       <div className="all-cart-items">
         {state.map((cart) => (
           <div key={cart.id} className="card-horizontal">
@@ -35,13 +34,6 @@ export function Cart() {
               <div className="div-quantity">
                 <button
                   className="btn-hCard"
-                  onClick={() => dispatch({ type: "INCREMENT", id: cart.id })}
-                >
-                  +
-                </button>
-                <span>{cart.quantity}</span>
-                <button
-                  className="btn-hCard"
                   onClick={() =>
                     dispatch({
                       type: "DECREMENT",
@@ -51,6 +43,13 @@ export function Cart() {
                 >
                   -
                 </button>
+                <span>{cart.quantity}</span>
+                <button
+                  className="btn-hCard"
+                  onClick={() => dispatch({ type: "INCREMENT", id: cart.id })}
+                >
+                  +
+                </button>
                 <button
                   className="btn-hCard h-remove"
                   onClick={() => dispatch({ type: "REMOVE", id: cart.id })}
@@ -59,11 +58,17 @@ export function Cart() {
                 </button>
               </div>
               <p className="ptext p-price total-inCart">
-                Total ₹{cart.price * cart.quantity}
+                ₹{cart.price * cart.quantity}
               </p>
             </div>
           </div>
         ))}
+      </div>
+      <div className="cart-total-inCheck">
+        <p>
+          Cart Total <strong>₹{total}</strong>{" "}
+        </p>
+        <button>Checkout &gt;&gt;</button>
       </div>
     </div>
   );

@@ -7,12 +7,18 @@ export function Header() {
   const { setRoute } = useNav();
 
   return (
-    <div>
-      <h1 onClick={() => setRoute("product")}>Kannada101</h1>
-      <button onClick={() => setRoute("cart")} className="btn-show-cart">
-        <span class="material-icons"> shopping_cart </span>
-        <span class="icon-badge">{state.length}</span>
-      </button>
+    <div className="header">
+      <h1 className="brand-title" onClick={() => setRoute("product")}>
+        Kannada101
+      </h1>
+      <div>
+        <button onClick={() => setRoute("cart")} className="btn-show-cart">
+          <span className="material-icons"> shopping_cart </span>
+          {state.length > 0 && (
+            <span className="icon-badge">{state.length}</span>
+          )}
+        </button>
+      </div>
     </div>
   );
 }

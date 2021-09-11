@@ -2,19 +2,41 @@
 
 :root {
   --cart-btn: #030d51;
-}
-
-html {
-  scroll-padding-top: 7rem;
+  --custom-red: #ef4444;
+  --custom-yellow: #f59e0b;
+  --custom-green: #10b981;
+  --custom-blue: #3b82f6;
+  --avatar-border: #2c303a;
+  --primary-color: #7c3aed;
+  --secondary-color: #80868b;
+  --border-color: #dadce0;
 }
 
 body {
+  padding-top: 6rem;
   margin: 0;
   font-family: "Roboto", sans-serif;
 }
 
 button {
   font-family: "Roboto", sans-serif;
+}
+
+.header {
+  box-sizing: border-box;
+  padding: 0 2rem;
+  display: flex;
+  background-color: var(--primary-color);
+  color: white;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.brand-title {
+  cursor: pointer;
 }
 
 /* productsListings */
@@ -44,7 +66,7 @@ button {
   background-color: var(--cart-btn);
 }
 
-/* cart items */
+/* cart component */
 
 .card-horizontal {
   margin: 1rem auto;
@@ -68,23 +90,61 @@ button {
 .total-inCart {
   margin-left: 1rem;
   padding: 0.5rem;
-  color: var(--custom-red);
+  color: var(--custom-blue);
   background-color: var(--border-color);
   border-radius: 0.5rem;
 }
 
-/* cart icon */
+/* cart total bottom button */
+
+.cart-total-inCheck {
+  padding-left: 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 18rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 0.5rem 0.5rem 0 0;
+  position: fixed;
+  bottom: 0;
+  right: 2rem;
+}
+
+.cart-total-inCheck button {
+  padding: 0 1rem;
+  border: none;
+  background-color: var(--primary-color);
+  font-size: 1rem;
+  border-radius: 0 0.5rem 0 0;
+  color: white;
+  cursor: pointer;
+}
+
+.cart-total-inCheck button:hover {
+  background-color: #5b21b6;
+}
+
+/* cart header button */
 
 .btn-show-cart {
   position: relative;
   background-color: white;
   border: none;
   cursor: pointer;
+  background-color: var(--primary-color);
+  padding-top: 1rem;
+  color: white;
+}
+
+.btn-show-cart .material-icons {
+  font-size: 2.5rem;
 }
 
 .btn-show-cart .icon-badge {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  top: 0.4rem;
+  left: 1.8rem;
 }
 
 @media (max-width: 500px) {
@@ -111,5 +171,16 @@ button {
   .h-remove {
     margin-left: 0;
     font-size: 1rem;
+  }
+
+  .cart-total-inCheck {
+    border-radius: 0.5rem;
+    margin: 5% auto;
+    left: 0;
+    right: 0;
+  }
+
+  .cart-total-inCheck button {
+    border-radius: 0.5rem;
   }
 }

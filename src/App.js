@@ -9,15 +9,9 @@ function App() {
 
   return (
     <div className="App">
-      <div className="wrapper">
-        <div className="header">
-          <Header />
-        </div>
-        <div className="main">
-          {route === "product" && <ProductListing />}
-          {route === "cart" && <Cart />}
-        </div>
-      </div>
+      <Header />
+      {route === "product" && <ProductListing />}
+      {route === "cart" && <Cart />}
     </div>
   );
 }
