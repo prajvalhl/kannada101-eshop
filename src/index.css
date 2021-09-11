@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
+:root {
+  --cart-btn: #1e3a8a;
+}
+
 html {
   scroll-padding-top: 7rem;
 }
@@ -13,48 +17,70 @@ button {
   font-family: "Roboto", sans-serif;
 }
 
-.header {
-}
-
-.main {
-}
-
 /* product */
-
-.item {
-  border: 1px solid black;
-  border-radius: 0 0 0 0.5rem;
-  width: 12rem;
-  padding: 1rem 1rem 0 1rem;
-  margin: 1rem;
-  text-align: center;
-  position: relative;
-}
-
-.item h3 {
-  margin-block-end: 0;
-}
-
-.item div {
-  margin: 1rem 0;
-}
-
-.item .product-bottom {
-  margin-top: 2rem;
-}
-
-.product-bottom button {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-
-.product-bottom p {
-  position: absolute;
-  bottom: -1rem;
-}
 
 .all-items {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-vertical {
+  margin: 1rem;
+}
+
+.card-vertical img {
+  width: 252px;
+  height: 252px;
+}
+
+.btn {
+  border-radius: 0;
+  transition: 0.25s;
+}
+
+.btn:hover {
+  color: white;
+  background-color: var(--cart-btn);
+}
+
+.card-horizontal {
+  margin: 1rem;
+}
+
+.card-horizontal img {
+  width: 252px;
+  height: 252px;
+}
+
+.btn-hCard:hover {
+  color: white;
+  background-color: var(--cart-btn);
+}
+
+.h-remove:hover {
+  background-color: white;
+  color: var(--custom-red);
+}
+
+.total-inCart {
+  margin-left: 1rem;
+  padding: 0.5rem;
+  color: var(--custom-red);
+  background-color: var(--border-color);
+}
+
+@media (max-width: 500px) {
+  .card-horizontal {
+    flex-direction: column;
+  }
+
+  .horizontal-rating {
+    left: 0.2rem;
+    top: 14rem;
+  }
+
+  .total-inCart {
+    width: 7rem;
+  }
 }

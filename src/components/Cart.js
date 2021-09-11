@@ -1,5 +1,5 @@
 import React from "react";
-import { CartProvider, useCart } from "../cart-context";
+import { useCart } from "../cart-context";
 
 export function Cart() {
   const { state, dispatch } = useCart();
@@ -13,31 +13,51 @@ export function Cart() {
       <h1>Cart Total: {total}</h1>
       <div className="all-items">
         {state.map((cart) => (
-          <div key={cart.id} className="item">
-            <img src={cart.image} width="150px" height="auto" alt={cart.name} />
-            <h3>{cart.name}</h3>
-            <small>by {cart.brand}</small>
-            <div>Rating: {cart.ratings}</div>
-            <p>Rs. {cart.price}</p>
-            <button
-              onClick={() => dispatch({ type: "INCREMENT", id: cart.id })}
-            >
-              +
-            </button>
-            <span>{cart.quantity}</span>
-            <button
-              onClick={() =>
-                dispatch({
-                  type: "DECREMENT",
-                  itemDetail: { id: cart.id, quantity: cart.quantity },
-                })
-              }
-            >
-              -
-            </button>
-            <button onClick={() => dispatch({ type: "REMOVE", id: cart.id })}>
-              Remove
-            </button>
+          <div key={cart.id} className="card-horizontal">
+            <img src={cart.image} alt={cart.name} />
+            <div className="rating horizontal-rating">
+              <p>{cart.ratings}</p>
+              <span className="material-icons"> star_rate </span>
+            </div>
+            <div className="hori-resp">
+              <p className="ptext p-head">{cart.name}</p>
+              <p className="ptext p-dec">
+                {cart.inStock ? "In Stock" : "Out Of Stock"}
+              </p>
+              <p className="ptext p-dec">
+                {cart.fastDelivery ? "Fast Delivery" : "Slow Delivery"}
+              </p>
+              <p className="ptext p-price">Rs {cart.price}</p>
+              <div className="div-quantity">
+                <button
+                  className="btn-hCard"
+                  onClick={() => dispatch({ type: "INCREMENT", id: cart.id })}
+                >
+                  +
+                </button>
+                <span>{cart.quantity}</span>
+                <button
+                  className="btn-hCard"
+                  onClick={() =>
+                    dispatch({
+                      type: "DECREMENT",
+                      itemDetail: { id: cart.id, quantity: cart.quantity },
+                    })
+                  }
+                >
+                  -
+                </button>
+                <button
+                  className="btn-hCard h-remove"
+                  onClick={() => dispatch({ type: "REMOVE", id: cart.id })}
+                >
+                  Remove
+                </button>
+              </div>
+              <p className="ptext p-price total-inCart">
+                Total Rs {cart.price * cart.quantity}
+              </p>
+            </div>
           </div>
         ))}
       </div>

@@ -122,28 +122,30 @@ export function ProductListing() {
         </fieldset>
       </div>
       <div>
-        <h1>Kannada101-Products</h1>
         <div className="all-items">
           {filteredData.map((prod) => (
-            <div key={prod.id} className="item">
-              <img
-                src={prod.image}
-                width="150px"
-                height="auto"
-                alt={prod.name}
-              />
-              <h3>{prod.name}</h3>
-              <small>by {prod.brand}</small>
-              <div>Rating: {prod.ratings}</div>
-              <p>{prod.inStock ? "In Stock" : "Out Of Stock"}</p>
-              <div className="product-bottom">
-                <p>Rs. {prod.price}</p>
+            <div key={prod.id} className="card-vertical">
+              <img src={prod.image} alt={prod.name} />
+              <div>
+                <p className="ptext p-head">{prod.name}</p>
+                <div className="rating vertical-rating">
+                  <p>{prod.ratings}</p>
+                  <span className="material-icons"> star_rate </span>
+                </div>
+                <p className="ptext p-dec">
+                  {prod.inStock ? "In Stock" : "Out Of Stock"}
+                </p>
+                <p className="ptext p-dec">
+                  {prod.fastDelivery ? "Fast Delivery" : "Slow Delivery"}
+                </p>
+                <p className="ptext p-price">Rs {prod.price}</p>
                 <button
+                  className="btn btn-primary btn-icon add-to-cart"
                   onClick={() =>
                     dispatch({ type: "ADD_TO_CART", product: prod })
                   }
                 >
-                  add to cart
+                  <span className="material-icons"> shopping_cart </span>
                 </button>
               </div>
             </div>
