@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import { data } from "../data";
 import { useCart } from "../cart-context";
 import { giveBackgroundColor } from "../cart-context";
@@ -43,6 +43,7 @@ function getFliteredData2(productsList, rangeVal) {
 
 export function ProductListing() {
   const { dispatch } = useCart();
+  const [showFilter, setShowFilter] = useState(false);
 
   const [
     { showInventoryAll, showFastDeliveryOnly, sortBy, rangeVal },
@@ -50,7 +51,7 @@ export function ProductListing() {
   ] = useReducer(sortProducts, {
     showInventoryAll: true,
     showFastDeliveryOnly: false,
-    sortBy: null,
+    sortBy: "normal",
     rangeVal: 1000,
   });
 
@@ -62,10 +63,13 @@ export function ProductListing() {
   const filteredData = getFliteredData2(filter1, rangeVal);
 
   return (
-    <div>
+    <div className="productListings">
       <div>
-        <fieldset>
-          <legend>Sort By</legend>
+        <div
+          className="filters"
+          style={{ display: showFilter ? "block" : "none" }}
+        >
+          <p>Filters</p>
           <label>
             <input
               type="radio"
@@ -88,9 +92,6 @@ export function ProductListing() {
             />
             Price - High to Low
           </label>
-        </fieldset>
-        <fieldset>
-          <legend>Filters</legend>
           <label>
             <input
               type="checkbox"
@@ -107,20 +108,24 @@ export function ProductListing() {
             />
             Fast Delivery Only
           </label>
-          <br />
           <label>
             Price Range
             <input
               type="range"
               min="50"
               max="1000"
+              step="50"
               value={rangeVal}
               onChange={(e) =>
-                dispatchLocal({ type: "RANGE_SLIDER", payload: e.target.value })
+                dispatchLocal({
+                  type: "RANGE_SLIDER",
+                  payload: e.target.value,
+                })
               }
             />
+            <p>₹{rangeVal}</p>
           </label>
-        </fieldset>
+        </div>
       </div>
       <div>
         <div className="all-items">
@@ -156,6 +161,12 @@ export function ProductListing() {
           ))}
         </div>
       </div>
+      <button
+        className="btn-float float-fix"
+        onClick={() => setShowFilter(!showFilter)}
+      >
+        <span className="material-icons"> filter_alt </span>
+      </button>
     </div>
   );
 }

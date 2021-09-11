@@ -29,6 +29,7 @@ button {
   background-color: var(--primary-color);
   color: white;
   justify-content: space-between;
+  align-items: center;
   position: fixed;
   top: 0;
   width: 100%;
@@ -39,12 +40,36 @@ button {
   cursor: pointer;
 }
 
+/* filters */
+
+.filters {
+  background-color: var(--custom-yellow);
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  margin-top: 1rem;
+  position: fixed;
+  bottom: 6rem;
+  right: 2rem;
+  z-index: 1;
+}
+
+.filters p {
+  text-align: center;
+  margin-block-end: 0;
+  font-weight: bold;
+}
+
+.filters label {
+  display: block;
+  padding: 1rem 0;
+}
+
 /* productsListings */
 
 .all-items {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .card-vertical {
@@ -95,7 +120,7 @@ button {
   border-radius: 0.5rem;
 }
 
-/* cart total bottom button */
+/* cart-bottom total and checkout button */
 
 .cart-total-inCheck {
   padding-left: 1rem;
@@ -166,6 +191,7 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-bottom: 4rem;
   }
 
   .h-remove {
@@ -182,5 +208,10 @@ button {
 
   .cart-total-inCheck button {
     border-radius: 0.5rem;
+  }
+
+  .filters {
+    bottom: 4rem;
+    right: 1rem;
   }
 }
