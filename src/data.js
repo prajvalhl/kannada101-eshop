@@ -11,7 +11,7 @@ export const data = [...Array(50)].map((item) => ({
   brand: faker.lorem.word(),
   inStock: faker.datatype.boolean(),
   fastDelivery: faker.datatype.boolean(),
-  ratings: faker.random.arrayElement([1, 2, 3, 4, 5]),
+  ratings: faker.random.arrayElement([1.1, 2.2, 3.3, 4.4, 4.9]),
   level: faker.random.arrayElement([
     "beginner",
     "amateur",

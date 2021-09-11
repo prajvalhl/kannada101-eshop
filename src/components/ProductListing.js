@@ -1,6 +1,7 @@
 import React, { useReducer } from "react";
 import { data } from "../data";
 import { useCart } from "../cart-context";
+import { giveBackgroundColor } from "../cart-context";
 
 function sortProducts(state, action) {
   switch (action.type) {
@@ -128,7 +129,10 @@ export function ProductListing() {
               <img src={prod.image} alt={prod.name} />
               <div>
                 <p className="ptext p-head">{prod.name}</p>
-                <div className="rating vertical-rating">
+                <div
+                  className="rating vertical-rating"
+                  style={{ backgroundColor: giveBackgroundColor(prod.ratings) }}
+                >
                   <p>{prod.ratings}</p>
                   <span className="material-icons"> star_rate </span>
                 </div>
@@ -138,7 +142,7 @@ export function ProductListing() {
                 <p className="ptext p-dec">
                   {prod.fastDelivery ? "Fast Delivery" : "Slow Delivery"}
                 </p>
-                <p className="ptext p-price">Rs {prod.price}</p>
+                <p className="ptext p-price">₹{prod.price}</p>
                 <button
                   className="btn btn-primary btn-icon add-to-cart"
                   onClick={() =>

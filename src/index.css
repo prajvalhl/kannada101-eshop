@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 :root {
-  --cart-btn: #1e3a8a;
+  --cart-btn: #030d51;
 }
 
 html {
@@ -70,7 +70,10 @@ button {
   padding: 0.5rem;
   color: var(--custom-red);
   background-color: var(--border-color);
+  border-radius: 0.5rem;
 }
+
+/* cart icon */
 
 .btn-show-cart {
   position: relative;
@@ -91,12 +94,12 @@ button {
   }
 
   .horizontal-rating {
-    left: 0.2rem;
-    top: 14rem;
+    left: 1rem;
+    top: 228px;
   }
 
   .total-inCart {
-    width: 7rem;
+    width: 6rem;
   }
 
   .all-cart-items {

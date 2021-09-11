@@ -1,5 +1,6 @@
 import React from "react";
 import { useCart } from "../cart-context";
+import { giveBackgroundColor } from "../cart-context";
 
 export function Cart() {
   const { state, dispatch } = useCart();
@@ -10,12 +11,15 @@ export function Cart() {
 
   return (
     <div>
-      <h1>Cart Total: {total}</h1>
+      <h1>Cart Total: ₹{total}</h1>
       <div className="all-cart-items">
         {state.map((cart) => (
           <div key={cart.id} className="card-horizontal">
             <img src={cart.image} alt={cart.name} />
-            <div className="rating horizontal-rating">
+            <div
+              className="rating horizontal-rating"
+              style={{ backgroundColor: giveBackgroundColor(cart.ratings) }}
+            >
               <p>{cart.ratings}</p>
               <span className="material-icons"> star_rate </span>
             </div>
@@ -27,7 +31,7 @@ export function Cart() {
               <p className="ptext p-dec">
                 {cart.fastDelivery ? "Fast Delivery" : "Slow Delivery"}
               </p>
-              <p className="ptext p-price">Rs {cart.price}</p>
+              <p className="ptext p-price">₹{cart.price}</p>
               <div className="div-quantity">
                 <button
                   className="btn-hCard"
@@ -55,7 +59,7 @@ export function Cart() {
                 </button>
               </div>
               <p className="ptext p-price total-inCart">
-                Total Rs {cart.price * cart.quantity}
+                Total ₹{cart.price * cart.quantity}
               </p>
             </div>
           </div>

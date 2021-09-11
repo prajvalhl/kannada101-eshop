@@ -61,3 +61,13 @@ export function CartProvider({ children }) {
 export function useCart() {
   return useContext(Cart);
 }
+
+export function giveBackgroundColor(rating) {
+  if (rating < 1.5) {
+    return "var(--custom-red)";
+  } else if (rating < 3.5) {
+    return "var(--custom-yellow)";
+  } else {
+    return "var(--custom-green)";
+  }
+}
