@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="footer">
       <div className="footer-header">Connect with me on</div>
-      <ul className="social-links list-non-bullet">
+      <ul>
         <li className="list-item-inline">
           <a
             className="link"
