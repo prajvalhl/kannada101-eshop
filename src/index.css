@@ -11,6 +11,7 @@
   --custom-purple: #7c3aed;
   --secondary-color: #80868b;
   --border-color: #dadce0;
+  --primary-alt: #003984;
 }
 
 body {
@@ -114,7 +115,7 @@ input {
 }
 
 .btn-float:active {
-  background-color: #003984;
+  background-color: var(--primary-alt);
 }
 
 .btn:hover {
@@ -150,6 +151,25 @@ input {
   border-radius: 0.5rem;
 }
 
+.cart-empty-banner {
+  text-align: center;
+  color: var(--primary-color);
+  padding: 1rem;
+  width: 40%;
+  margin: 5rem auto;
+  background-color: var(--border-color);
+  border-radius: 0.5rem;
+}
+
+.cart-empty-continue-shopping {
+  color: var(--primary-alt);
+  cursor: pointer;
+}
+
+.cart-empty-continue-shopping:hover {
+  text-decoration: var(--primary-alt) underline;
+}
+
 /* cart-bottom total and checkout button */
 .cart-total-inCheck {
   padding-left: 1rem;
@@ -175,7 +195,7 @@ input {
 }
 
 .cart-total-inCheck button:hover {
-  background-color: #003984;
+  background-color: var(--primary-alt);
 }
 
 @media (max-width: 500px) {
@@ -223,5 +243,9 @@ input {
   .filters {
     bottom: 4rem;
     right: 1rem;
+  }
+
+  .cart-empty-banner {
+    width: 70%;
   }
 }
