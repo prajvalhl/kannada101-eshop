@@ -38,7 +38,17 @@ export function Cart() {
         ) : (
           state.map((cart) => (
             <div key={cart.id} className="card-horizontal">
-              <img src={cart.image} alt={cart.name} />
+              <img
+                src={cart.image}
+                alt={cart.name}
+                className={!cart.inStock && "out-of-stock-image"}
+              />
+              <p
+                style={{ display: !cart.inStock ? "block" : "none" }}
+                className="out-of-stock-text out-of-stock-text-horizontal"
+              >
+                OUT <br /> OF <br /> STOCK
+              </p>
               <div
                 className="rating horizontal-rating"
                 style={{ backgroundColor: giveBackgroundColor(cart.ratings) }}

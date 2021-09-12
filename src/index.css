@@ -50,7 +50,7 @@ input {
   font-family: "Montserrat", sans-serif;
 }
 
-/* cart header button */
+/* header cart button */
 .btn-show-cart {
   position: relative;
   background-color: white;
@@ -168,6 +168,30 @@ input {
 
 .cart-empty-continue-shopping:hover {
   text-decoration: var(--primary-alt) underline;
+}
+
+/* out of stock image & text banner */
+.out-of-stock-image {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+}
+
+.out-of-stock-text {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 3rem;
+  height: 252px;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.out-of-stock-text-horizontal {
+  width: 252px;
+  top: 0;
 }
 
 /* cart-bottom total and checkout button */

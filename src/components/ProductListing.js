@@ -131,7 +131,17 @@ export function ProductListing() {
         <div className="all-items" onClick={() => setShowFilter(false)}>
           {filteredData.map((prod) => (
             <div key={prod.id} className="card-vertical">
-              <img src={prod.image} alt={prod.name} />
+              <img
+                src={prod.image}
+                alt={prod.name}
+                className={!prod.inStock && "out-of-stock-image"}
+              />
+              <p
+                style={{ display: !prod.inStock ? "block" : "none" }}
+                className="out-of-stock-text"
+              >
+                OUT <br /> OF <br /> STOCK
+              </p>
               <div>
                 <p className="ptext p-head">{prod.name}</p>
                 <div
