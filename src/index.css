@@ -14,6 +14,10 @@
   --primary-alt: #003984;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   padding-top: 6rem;
   margin: 0;

@@ -12,7 +12,13 @@ export function Header() {
 
   return (
     <div className="header">
-      <p className="brand-title" onClick={() => setRoute("product")}>
+      <p
+        className="brand-title"
+        onClick={() => {
+          setRoute("product");
+          window.scrollTo(0, 0);
+        }}
+      >
         KannadaClass101
       </p>
       <div>
