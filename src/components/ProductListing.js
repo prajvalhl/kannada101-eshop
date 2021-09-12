@@ -134,7 +134,7 @@ export function ProductListing() {
               <img
                 src={prod.image}
                 alt={prod.name}
-                className={!prod.inStock && "out-of-stock-image"}
+                className={!prod.inStock ? "out-of-stock-image" : undefined}
               />
               <p
                 style={{ display: !prod.inStock ? "block" : "none" }}
@@ -152,10 +152,7 @@ export function ProductListing() {
                   <span className="material-icons"> star_rate </span>
                 </div>
                 <p className="ptext p-dec">
-                  {prod.inStock ? "In Stock" : "Out Of Stock"}
-                </p>
-                <p className="ptext p-dec">
-                  {prod.fastDelivery ? "Fast Delivery" : "Slow Delivery"}
+                  {prod.fastDelivery ? "✔ Fast Delivery" : "7-Day Delivery"}
                 </p>
                 <p className="ptext p-price">₹{prod.price}</p>
                 <button

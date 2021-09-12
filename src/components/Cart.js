@@ -41,7 +41,7 @@ export function Cart() {
               <img
                 src={cart.image}
                 alt={cart.name}
-                className={!cart.inStock && "out-of-stock-image"}
+                className={!cart.inStock ? "out-of-stock-image" : undefined}
               />
               <p
                 style={{ display: !cart.inStock ? "block" : "none" }}
@@ -62,7 +62,7 @@ export function Cart() {
                   {cart.inStock ? "In Stock" : "Out Of Stock"}
                 </p>
                 <p className="ptext p-dec">
-                  {cart.fastDelivery ? "Fast Delivery" : "Slow Delivery"}
+                  {cart.fastDelivery ? "✔ Fast Delivery" : "7-Day Delivery"}
                 </p>
                 <p className="ptext p-price">₹{cart.price}</p>
                 <div className="div-quantity">
