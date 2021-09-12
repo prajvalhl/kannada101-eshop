@@ -61,10 +61,10 @@ input {
 }
 
 .btn-show-cart .icon-badge {
-  width: 1rem;
-  height: 1rem;
+  width: 1.1rem;
+  height: 1.1rem;
   top: 0.4rem;
-  left: 1.2rem;
+  left: 1.3rem;
 }
 
 /* filters */
@@ -108,7 +108,7 @@ input {
   height: 252px;
 }
 
-.btn {
+.add-to-cart {
   padding: 1rem;
   border-radius: 0;
   transition: 0.25s;

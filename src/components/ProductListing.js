@@ -160,6 +160,7 @@ export function ProductListing() {
                   onClick={() =>
                     dispatch({ type: "ADD_TO_CART", product: prod })
                   }
+                  disabled={!prod.inStock}
                 >
                   <span className="material-icons"> add_shopping_cart </span>
                 </button>
