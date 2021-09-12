@@ -43,7 +43,7 @@ export function Cart() {
                 >
                   -
                 </button>
-                <span>{cart.quantity}</span>
+                <span className="qty_btw_inc_dec">{cart.quantity}</span>
                 <button
                   className="btn-hCard"
                   onClick={() => dispatch({ type: "INCREMENT", id: cart.id })}

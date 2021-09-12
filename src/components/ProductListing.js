@@ -154,7 +154,7 @@ export function ProductListing() {
                     dispatch({ type: "ADD_TO_CART", product: prod })
                   }
                 >
-                  <span className="material-icons"> shopping_cart </span>
+                  <span className="material-icons"> add_shopping_cart </span>
                 </button>
               </div>
             </div>

@@ -8,9 +8,9 @@ export function Header() {
 
   return (
     <div className="header">
-      <h1 className="brand-title" onClick={() => setRoute("product")}>
-        Kannada101
-      </h1>
+      <p className="brand-title" onClick={() => setRoute("product")}>
+        KannadaClass101
+      </p>
       <div>
         <button onClick={() => setRoute("cart")} className="btn-show-cart">
           <span className="material-icons"> shopping_cart </span>
