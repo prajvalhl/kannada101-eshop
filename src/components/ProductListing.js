@@ -156,7 +156,9 @@ export function ProductListing() {
                 </p>
                 <p className="ptext p-price">₹{prod.price}</p>
                 <button
-                  className="btn btn-primary btn-icon add-to-cart"
+                  className={`btn btn-primary btn-icon add-to-cart ${
+                    !prod.inStock && "add-to-cart-out-of-stock"
+                  }`}
                   onClick={() =>
                     dispatch({ type: "ADD_TO_CART", product: prod })
                   }
