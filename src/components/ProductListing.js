@@ -5,27 +5,49 @@ import { giveBackgroundColor } from "../cart-context";
 
 function sortProducts(state, action) {
   switch (action.type) {
-    case "SORT":
-      return { ...state, sortBy: action.payload };
+    case "SORT_PRICE":
+      return { ...state, sortByPrice: action.payload };
+    case "SORT_LEVEL":
+      return { ...state, sortByLevel: action.payload };
     case "TOGGLE_INVENTORY":
       return { ...state, showInventoryAll: !state.showInventoryAll };
     case "TOGGLE_DELIVERY":
       return { ...state, showFastDeliveryOnly: !state.showFastDeliveryOnly };
     case "RANGE_SLIDER":
       return { ...state, rangeVal: Number(action.payload) };
+    case "RESET_FILTER":
+      return {
+        showInventoryAll: true,
+        showFastDeliveryOnly: false,
+        sortByPrice: "NO_SORT",
+        rangeVal: 1000,
+        sortByLevel: "NO_LEVEL",
+      };
     default:
       return state;
   }
 }
 
-function getSortedData(productsList, sortBy) {
-  if (sortBy && sortBy === "PRICE_LOW_TO_HIGH") {
+function getSortedPriceData(productsList, sortByPrice) {
+  if (sortByPrice && sortByPrice === "PRICE_LOW_TO_HIGH") {
     return productsList.sort((a, b) => a.price - b.price);
   }
-  if (sortBy && sortBy === "PRICE_HIGH_TO_LOW") {
+  if (sortByPrice && sortByPrice === "PRICE_HIGH_TO_LOW") {
     return productsList.sort((a, b) => b.price - a.price);
   }
   return productsList;
+}
+
+function getSortedLevelData(productList, sortByLevel) {
+  if (sortByLevel && sortByLevel === "BEGINNER") {
+    return productList.filter(({ level }) => level === "beginner");
+  } else if (sortByLevel && sortByLevel === "INTERMEDIATE") {
+    return productList.filter(({ level }) => level === "intermediate");
+  } else if (sortByLevel && sortByLevel === "ADVANCED") {
+    return productList.filter(({ level }) => level === "advanced");
+  } else {
+    return productList;
+  }
 }
 
 function getFliteredData1(
@@ -46,21 +68,29 @@ export function ProductListing() {
   const [showFilter, setShowFilter] = useState(false);
 
   const [
-    { showInventoryAll, showFastDeliveryOnly, sortBy, rangeVal },
+    {
+      showInventoryAll,
+      showFastDeliveryOnly,
+      sortByPrice,
+      rangeVal,
+      sortByLevel,
+    },
     dispatchLocal,
   ] = useReducer(sortProducts, {
     showInventoryAll: true,
     showFastDeliveryOnly: false,
-    sortBy: "normal",
+    sortByPrice: "NO_SORT",
     rangeVal: 1000,
+    sortByLevel: "NO_LEVEL",
   });
 
-  const sortedData = getSortedData(data, sortBy);
-  const filter1 = getFliteredData1(sortedData, {
+  const priceSortedData = getSortedPriceData(data, sortByPrice);
+  const otherFilteredData = getFliteredData1(priceSortedData, {
     showInventoryAll,
     showFastDeliveryOnly,
   });
-  const filteredData = getFliteredData2(filter1, rangeVal);
+  const rangeSetData = getFliteredData2(otherFilteredData, rangeVal);
+  const filteredData = getSortedLevelData(rangeSetData, sortByLevel);
 
   return (
     <div className="productListings">
@@ -69,29 +99,51 @@ export function ProductListing() {
           className="filters"
           style={{ display: showFilter ? "block" : "none" }}
         >
-          <p>Filters</p>
+          <p className="filter-title-center">Filters</p>
+          <p className="filter-sub-title">Level</p>
           <label>
             <input
               type="radio"
-              name="sort"
+              name="level"
               onChange={() =>
-                dispatchLocal({ type: "SORT", payload: "PRICE_LOW_TO_HIGH" })
+                dispatchLocal({
+                  type: "SORT_LEVEL",
+                  payload: "BEGINNER",
+                })
               }
-              checked={sortBy && sortBy === "PRICE_LOW_TO_HIGH"}
+              checked={sortByLevel && sortByLevel === "BEGINNER"}
             />
-            Price - Low to High
+            Beginner
           </label>
           <label>
             <input
               type="radio"
-              name="sort"
+              name="level"
               onChange={() =>
-                dispatchLocal({ type: "SORT", payload: "PRICE_HIGH_TO_LOW" })
+                dispatchLocal({
+                  type: "SORT_LEVEL",
+                  payload: "INTERMEDIATE",
+                })
               }
-              checked={sortBy && sortBy === "PRICE_HIGH_TO_LOW"}
+              checked={sortByLevel && sortByLevel === "INTERMEDIATE"}
             />
-            Price - High to Low
+            Intermediate
           </label>
+          <label>
+            <input
+              type="radio"
+              name="level"
+              onChange={() =>
+                dispatchLocal({
+                  type: "SORT_LEVEL",
+                  payload: "ADVANCED",
+                })
+              }
+              checked={sortByLevel && sortByLevel === "ADVANCED"}
+            />
+            Advanced
+          </label>
+          <p className="filter-sub-title">Others</p>
           <label>
             <input
               type="checkbox"
@@ -108,6 +160,35 @@ export function ProductListing() {
             />
             Fast Delivery Only
           </label>
+          <p className="filter-sub-title">Price</p>
+          <label>
+            <input
+              type="radio"
+              name="sort"
+              onChange={() =>
+                dispatchLocal({
+                  type: "SORT_PRICE",
+                  payload: "PRICE_LOW_TO_HIGH",
+                })
+              }
+              checked={sortByPrice && sortByPrice === "PRICE_LOW_TO_HIGH"}
+            />
+            Low to High
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="sort"
+              onChange={() =>
+                dispatchLocal({
+                  type: "SORT_PRICE",
+                  payload: "PRICE_HIGH_TO_LOW",
+                })
+              }
+              checked={sortByPrice && sortByPrice === "PRICE_HIGH_TO_LOW"}
+            />
+            High to Low
+          </label>
           <label>
             Price Range
             <input
@@ -123,7 +204,15 @@ export function ProductListing() {
                 })
               }
             />
-            <p>₹{rangeVal}</p>
+            <p className="filter-title-center">₹{rangeVal}</p>
+          </label>
+          <label>
+            <p
+              className="filter-clear"
+              onClick={() => dispatchLocal({ type: "RESET_FILTER" })}
+            >
+              Reset All Filters
+            </p>
           </label>
         </div>
       </div>

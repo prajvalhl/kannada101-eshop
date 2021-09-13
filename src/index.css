@@ -87,15 +87,30 @@ input {
   transition: 0.25s;
 }
 
-.filters p {
+.filters .filter-title-center {
   text-align: center;
+  margin-block-end: 0;
+  margin-block-start: 0.5rem;
+  font-weight: bold;
+}
+
+.filter-sub-title {
+  margin-block-start: 0;
   margin-block-end: 0;
   font-weight: bold;
 }
 
 .filters label {
   display: block;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
+}
+
+.filter-clear {
+  text-align: center;
+  margin-block-start: 0.5rem;
+  margin-block-end: 0.5rem;
+  font-weight: bold;
+  color: var(--custom-red);
 }
 
 /* productsListings */
