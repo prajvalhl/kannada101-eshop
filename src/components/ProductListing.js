@@ -112,9 +112,9 @@ export function ProductListing() {
             Price Range
             <input
               type="range"
-              min="50"
+              min="100"
               max="1000"
-              step="50"
+              step="100"
               value={rangeVal}
               onChange={(e) =>
                 dispatchLocal({

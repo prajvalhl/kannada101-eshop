@@ -107,6 +107,7 @@ input {
 
 .card-vertical {
   margin: 1rem;
+  box-shadow: 2px 2px 5px rgb(0 0 0 / 0.2);
 }
 
 .card-vertical img {
@@ -137,6 +138,7 @@ input {
 /* cart component */
 .card-horizontal {
   margin: 1rem auto;
+  box-shadow: 2px 2px 5px rgb(0 0 0 / 0.2);
 }
 
 .card-horizontal img {
