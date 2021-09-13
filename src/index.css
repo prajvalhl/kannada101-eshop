@@ -171,6 +171,15 @@ input {
   color: var(--custom-red);
 }
 
+.p-brand-name {
+  margin-block-end: 0.5rem;
+}
+
+.p-brand {
+  margin-block-start: 0;
+  font-size: 0.8rem;
+}
+
 .total-inCart {
   margin-left: 1rem;
   padding: 0.5rem;

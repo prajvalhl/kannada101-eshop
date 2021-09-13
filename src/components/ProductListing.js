@@ -1,7 +1,7 @@
 import React, { useReducer, useState } from "react";
 import { data } from "../data";
 import { useCart } from "../cart-context";
-import { giveBackgroundColor } from "../cart-context";
+import { giveRatingsBgColor } from "../cart-context";
 
 function sortProducts(state, action) {
   switch (action.type) {
@@ -235,7 +235,7 @@ export function ProductListing() {
                 <p className="ptext p-head">{prod.name}</p>
                 <div
                   className="rating vertical-rating"
-                  style={{ backgroundColor: giveBackgroundColor(prod.ratings) }}
+                  style={{ backgroundColor: giveRatingsBgColor(prod.ratings) }}
                 >
                   <p>{prod.ratings}</p>
                   <span className="material-icons"> star_rate </span>

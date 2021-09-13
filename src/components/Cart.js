@@ -1,7 +1,7 @@
 import React from "react";
 import { useCart } from "../cart-context";
 import { useNav } from "../navigation-context";
-import { giveBackgroundColor } from "../cart-context";
+import { giveRatingsBgColor } from "../cart-context";
 
 function CartEmpty() {
   const { setRoute } = useNav();
@@ -51,16 +51,14 @@ export function Cart() {
               </p>
               <div
                 className="rating horizontal-rating"
-                style={{ backgroundColor: giveBackgroundColor(cart.ratings) }}
+                style={{ backgroundColor: giveRatingsBgColor(cart.ratings) }}
               >
                 <p>{cart.ratings}</p>
                 <span className="material-icons"> star_rate </span>
               </div>
               <div className="hori-resp">
-                <p className="ptext p-head">{cart.name}</p>
-                <p className="ptext p-dec">
-                  {cart.inStock ? "In Stock" : "Out Of Stock"}
-                </p>
+                <p className="ptext p-head p-brand-name">{cart.name}</p>
+                <p className="ptext p-dec p-brand">By {cart.brand}</p>
                 <p className="ptext p-dec">
                   {cart.fastDelivery ? "✔ Fast Delivery" : "7-Day Delivery"}
                 </p>

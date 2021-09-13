@@ -62,7 +62,7 @@ export function useCart() {
   return useContext(Cart);
 }
 
-export function giveBackgroundColor(rating) {
+export function giveRatingsBgColor(rating) {
   if (rating < 1.5) {
     return "var(--custom-red)";
   } else if (rating < 3.5) {
