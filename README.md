@@ -1,7 +1,7 @@
 # Shop-KannadaClass101 - A MERN stack e-commerce book store. ⚠️ Under Development!
 
 <p align="center">
-  <img alt="screenshot of Shop-KannadaClass101" src="https://i.imgur.com/rWkLiQ0.png">
+  <img alt="screenshot of Shop-KannadaClass101" src="https://i.imgur.com/UA3hOas.png">
 </p>
 
 ## Table of Contents
