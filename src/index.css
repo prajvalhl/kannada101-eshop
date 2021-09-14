@@ -35,7 +35,7 @@ input {
 /* header related */
 .header {
   box-sizing: border-box;
-  padding: 0 10rem;
+  padding: 0.2rem 10rem;
   display: flex;
   background-color: white;
   border-bottom: 1px solid var(--border-color);
@@ -114,10 +114,11 @@ input {
 }
 
 /* productsListings */
-.all-items {
+.all-productListing-items {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  margin-left: 6rem;
 }
 
 .card-vertical {
@@ -143,6 +144,11 @@ input {
 .add-to-cart:hover {
   color: white;
   background-color: var(--primary-color);
+}
+
+.add-to-cart-out-of-stock {
+  color: white;
+  background-color: var(--custom-red);
 }
 
 .add-to-cart-out-of-stock:hover {
@@ -304,6 +310,11 @@ i.fab {
 @media (max-width: 500px) {
   .header {
     padding: 0.6rem 2rem;
+  }
+
+  .all-productListing-items {
+    margin: 0;
+    justify-content: center;
   }
 
   .card-horizontal {

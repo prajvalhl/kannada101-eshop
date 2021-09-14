@@ -217,7 +217,10 @@ export function ProductListing() {
         </div>
       </div>
       <div>
-        <div className="all-items" onClick={() => setShowFilter(false)}>
+        <div
+          className="all-productListing-items"
+          onClick={() => setShowFilter(false)}
+        >
           {filteredData.map((prod) => (
             <div key={prod.id} className="card-vertical">
               <img
