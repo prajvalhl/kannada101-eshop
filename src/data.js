@@ -2,7 +2,7 @@ export const data = [
   {
     id: 1,
     name: "Kannada Glossary 1",
-    image: "https://i.imgur.com/h4VL92T.jpg",
+    image: "https://images-na.ssl-images-amazon.com/images/I/61pWUG8tdxL.jpg",
     price: "775.00",
     brand: "Vasantha Prakaashana (Author)",
     inStock: true,
@@ -13,7 +13,7 @@ export const data = [
   {
     id: 2,
     name: "Kannada Reading for Learners (Level 1)",
-    image: "https://i.imgur.com/fGK6s9Q.jpg",
+    image: "https://images-na.ssl-images-amazon.com/images/I/91HKZ35QwpL.jpg",
     price: "665.00",
     brand: "S.L.Srinivasamurthy (Author)",
     inStock: true,
@@ -24,7 +24,7 @@ export const data = [
   {
     id: 3,
     name: "Writing Alphabets Practice Book Set of 5",
-    image: "https://i.imgur.com/ssZkxod.jpg",
+    image: "https://images-na.ssl-images-amazon.com/images/I/919ojS-QBRL.jpg",
     price: "799.00",
     brand: "Rajkumar (Author)",
     inStock: true,
@@ -35,7 +35,7 @@ export const data = [
   {
     id: 4,
     name: "Kannada Characters Practice",
-    image: "https://i.imgur.com/glxNpMT.jpg",
+    image: "https://images-na.ssl-images-amazon.com/images/I/8143yAqJw+L.jpg",
     price: "99.00",
     brand: "In House",
     inStock: false,
@@ -46,7 +46,7 @@ export const data = [
   {
     id: 5,
     name: "Introduction Of Kannada Letters",
-    image: "https://i.imgur.com/IG2aaKm.jpg",
+    image: "https://images-na.ssl-images-amazon.com/images/I/916WO6df+IL.jpg",
     price: "150.00",
     brand: "Heemansshu (Author)",
     inStock: true,
@@ -57,7 +57,7 @@ export const data = [
   {
     id: 6,
     name: "Non Kannadiga To Naanu Kannadiga",
-    image: "https://i.imgur.com/b6NzQ1J.jpg",
+    image: "https://images-na.ssl-images-amazon.com/images/I/81TLR-IjTZL.jpg",
     price: "99.00",
     brand: "Sridevi Shetty (Author)",
     inStock: true,
@@ -68,7 +68,7 @@ export const data = [
   {
     id: 7,
     name: "Kannada Letters Practice for Beginners",
-    image: "https://i.imgur.com/xAiS7XI.jpg",
+    image: "https://images-na.ssl-images-amazon.com/images/I/91I61MkqzeS.jpg",
     price: "880.00",
     brand: "Heemansshu (Author)",
     inStock: false,
@@ -79,7 +79,7 @@ export const data = [
   {
     id: 8,
     name: "Kannada Grammar and Composition 2",
-    image: "https://i.imgur.com/bFCpV4a.jpg",
+    image: "https://images-na.ssl-images-amazon.com/images/I/51LTjXLTN6S.jpg",
     price: "980.00",
     brand: "N GopalKrishna Udupa (Author)",
     inStock: true,
@@ -90,7 +90,7 @@ export const data = [
   {
     id: 9,
     name: "Kannada Reading for Learners (Level 2)",
-    image: "https://i.imgur.com/Xpq9O5n.jpg",
+    image: "https://images-na.ssl-images-amazon.com/images/I/91N2zi0KugL.jpg",
     price: "270.00",
     brand: "S.L.Srinivasamurthy (Author)",
     inStock: true,
@@ -101,7 +101,7 @@ export const data = [
   {
     id: 10,
     name: "Kannada Standard Grammar",
-    image: "https://i.imgur.com/IcG9zlP.jpg",
+    image: "https://images-na.ssl-images-amazon.com/images/I/41t6dphGFpL.jpg",
     price: "890.00",
     brand: "H.S.K. VISVESHWARAIAH (Author)",
     inStock: true,
@@ -112,7 +112,7 @@ export const data = [
   {
     id: 11,
     name: "Kannada Reading for Learners (Level 4)",
-    image: "https://i.imgur.com/W6O6AgC.jpg",
+    image: "https://images-na.ssl-images-amazon.com/images/I/91sZ+ztV9rL.jpg",
     price: "480.00",
     brand: "S.L.Srinivasamurthy (Author)",
     inStock: true,
@@ -123,7 +123,7 @@ export const data = [
   {
     id: 12,
     name: "Kannada Alphabet Learning for Beginners",
-    image: "https://i.imgur.com/GSPMzLk.jpg",
+    image: "https://images-na.ssl-images-amazon.com/images/I/81Cn9Bz-WtL.jpg",
     price: "350.00",
     brand: "UpToSchoolWorksheets",
     inStock: true,
@@ -134,7 +134,7 @@ export const data = [
   {
     id: 13,
     name: "Kannada Reading for Learners (Level 5)",
-    image: "https://i.imgur.com/OeX1hbS.jpg",
+    image: "https://images-na.ssl-images-amazon.com/images/I/71L3IsM6n-L.jpg",
     price: "685.00",
     brand: "S.L.Srinivasamurthy (Author)",
     inStock: true,
@@ -145,7 +145,7 @@ export const data = [
   {
     id: 14,
     name: "Kannada Writing Practice (Pack of 2)",
-    image: "https://i.imgur.com/RrOiKHx.jpg",
+    image: "https://images-na.ssl-images-amazon.com/images/I/81nhT4dlPZL.jpg",
     price: "510.00",
     brand: "InIkao Foundations",
     inStock: true,
@@ -156,7 +156,7 @@ export const data = [
   {
     id: 15,
     name: "Kannada Reading for Learners (Level 3)",
-    image: "https://i.imgur.com/misIDF2.jpg",
+    image: "https://images-na.ssl-images-amazon.com/images/I/91Ea5ztXRUL.jpg",
     price: "375.00",
     brand: "S.L.Srinivasamurthy (Author)",
     inStock: true,
@@ -167,7 +167,7 @@ export const data = [
   {
     id: 16,
     name: "Kannada Pocket Dictionary",
-    image: "https://i.imgur.com/IbzSOi4.jpg",
+    image: "https://images-na.ssl-images-amazon.com/images/I/81L+lsvkWuL.jpg",
     price: "400.00",
     brand: "Parishkrutha",
     inStock: false,
@@ -178,7 +178,7 @@ export const data = [
   {
     id: 17,
     name: "Kannada Grammar and Composition 1",
-    image: "https://i.imgur.com/7D32hIH.jpg",
+    image: "https://images-na.ssl-images-amazon.com/images/I/91Mvmmp8TSL.jpg",
     price: "480.00",
     brand: "N GopalKrishna Udupa (Author)",
     inStock: false,
@@ -189,7 +189,7 @@ export const data = [
   {
     id: 18,
     name: "Kannada Consonants",
-    image: "https://i.imgur.com/rTq8VZf.jpg",
+    image: "https://images-na.ssl-images-amazon.com/images/I/41ZZcBXqjcL.jpg",
     price: "65.00",
     brand: "Various Authors",
     inStock: true,
@@ -200,7 +200,7 @@ export const data = [
   {
     id: 19,
     name: "Modern Kannada Grammar",
-    image: "https://i.imgur.com/CGihexz.jpg",
+    image: "https://images-na.ssl-images-amazon.com/images/I/510JvNtSBmL.jpg",
     price: "285.00",
     brand: "Professor S N Sridhar (Author)",
     inStock: true,
@@ -211,7 +211,7 @@ export const data = [
   {
     id: 20,
     name: "Kannada Grammar and Composition",
-    image: "https://i.imgur.com/AoWEggq.jpg",
+    image: "https://images-na.ssl-images-amazon.com/images/I/41dyA5IcBKL.jpg",
     price: "179.00",
     brand: "N GopalKrishna Udupa (Author)",
     inStock: true,

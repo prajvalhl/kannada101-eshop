@@ -126,11 +126,6 @@ input {
   box-shadow: 2px 2px 5px rgb(0 0 0 / 0.2);
 }
 
-.card-vertical img {
-  width: 252px;
-  height: 252px;
-}
-
 .add-to-cart {
   padding: 1rem;
   border-radius: 0;
@@ -160,11 +155,6 @@ input {
 .card-horizontal {
   margin: 1rem auto;
   box-shadow: 2px 2px 5px rgb(0 0 0 / 0.2);
-}
-
-.card-horizontal img {
-  width: 252px;
-  height: 252px;
 }
 
 .btn-hCard:hover {

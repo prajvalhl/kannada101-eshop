@@ -222,11 +222,13 @@ export function ProductListing() {
           onClick={() => setShowFilter(false)}
         >
           {filteredData.map((prod) => (
-            <div key={prod.id} className="card-vertical">
+            <div className="card-vertical">
               <img
+                className={`card-vertical-thumbnail ${
+                  !prod.inStock ? "out-of-stock-image" : undefined
+                }`}
                 src={prod.image}
                 alt={prod.name}
-                className={!prod.inStock ? "out-of-stock-image" : undefined}
               />
               <p
                 style={{ display: !prod.inStock ? "block" : "none" }}

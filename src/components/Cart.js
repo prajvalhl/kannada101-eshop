@@ -41,7 +41,9 @@ export function Cart() {
               <img
                 src={cart.image}
                 alt={cart.name}
-                className={!cart.inStock ? "out-of-stock-image" : undefined}
+                className={`card-horizontal-thumbnail ${
+                  !cart.inStock ? "out-of-stock-image" : undefined
+                }`}
               />
               <p
                 style={{ display: !cart.inStock ? "block" : "none" }}
@@ -56,7 +58,7 @@ export function Cart() {
                 <p>{cart.ratings}</p>
                 <span className="material-icons"> star_rate </span>
               </div>
-              <div className="hori-resp">
+              <div className="horizontal-text-desciption">
                 <p className="ptext p-head p-brand-name">{cart.name}</p>
                 <p className="ptext p-dec p-brand">By {cart.brand}</p>
                 <p className="ptext p-dec">
