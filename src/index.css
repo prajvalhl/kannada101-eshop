@@ -203,6 +203,12 @@ input {
   text-decoration: var(--primary-alt) underline;
 }
 
+/* product and cart images */
+.card-vertical-thumbnail,
+.card-horizontal-thumbnail {
+  object-fit: fill;
+}
+
 /* out of stock image & text banner */
 .out-of-stock-image {
   opacity: 0.4;
@@ -310,11 +316,6 @@ i.fab {
   .card-horizontal {
     flex-direction: column;
     width: 252px;
-  }
-
-  .horizontal-rating {
-    left: 1rem;
-    top: 228px;
   }
 
   .total-inCart {
