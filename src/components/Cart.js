@@ -9,12 +9,6 @@ function CartEmpty() {
       <p className="fs fs-1">Your Cart is empty.</p>
       <p className="fs fs-4">
         Check your Wish List or{" "}
-        {/* <span
-          className="cart-empty-continue-shopping"
-          onClick={() => setRoute("product")}
-        >
-          continue shopping
-        </span> */}
         <Link to="/" className="cart-empty-continue-shopping">
           continue shopping
         </Link>
@@ -60,7 +54,9 @@ export function Cart() {
                 <span className="material-icons"> star_rate </span>
               </div>
               <div className="horizontal-text-desciption">
-                <p className="ptext p-head p-brand-name">{cart.name}</p>
+                <p className="ptext p-head p-brand-name">
+                  <Link to={`/product/${cart.id}`}>{cart.name}</Link>
+                </p>
                 <p className="ptext p-dec p-brand">By {cart.brand}</p>
                 <p className="ptext p-dec">
                   {cart.fastDelivery ? "✔ Fast Delivery" : "7-Day Delivery"}

@@ -1,16 +1,36 @@
 import React from "react";
 import { data } from "../data";
+import { giveRatingsBgColor } from "../cart-context";
+import { useCart } from "../cart-context";
+import { useParams } from "react-router-dom";
 import "../styles/productDetails.css";
 
 export function ProductDetails() {
+  const { productId } = useParams();
+  const product = data.find((product) => product.id === Number(productId));
+  const { dispatch } = useCart();
+
   return (
     <div className="product-details">
-      <img className="pd-image-container" src={data[15].image} alt="" />
+      <img
+        className="pd-image-container"
+        src={product.image}
+        alt={product.image}
+      />
       <div className="pd-details-container">
-        <h3>alksldkfslkfjasl</h3>
-        <p>sold by shashsashshs</p>
-        <p>Ratings 5 stars</p>
-        <p>Rs. 6546</p>
+        <h3>{product.name}</h3>
+        <p>sold by {product.brand}</p>
+        <div
+          className="rating pd-rating"
+          style={{ backgroundColor: giveRatingsBgColor(product.ratings) }}
+        >
+          <p>{product.ratings}</p>
+          <span className="material-icons"> star_rate </span>
+        </div>
+        <p>
+          ₹ {product.price}{" "}
+          <strong> {!product.inStock && "Currently Out Of Stock"}</strong>
+        </p>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id, aperiam.
           Quidem dicta, architecto quo numquam veniam magni earum eveniet soluta
@@ -30,8 +50,25 @@ export function ProductDetails() {
           impedit dolore sapiente, voluptas vel dolor, quasi sed. Corporis nihil
           quaerat magnam, ex eaque vel saepe. Amet, mollitia?
         </p>
-        <button>buy</button>
-        <button>add to cart</button>
+        <div className="pd-buttons">
+          <a
+            className="link link-primary"
+            href="/buy"
+            // target="_blank"
+            rel="noreferrer"
+          >
+            Buy
+          </a>
+          <button
+            className={`link link-secondary ${
+              !product.inStock && "add-to-cart-out-of-stock"
+            }`}
+            onClick={() => dispatch({ type: "ADD_TO_CART", product: product })}
+            disabled={!product.inStock}
+          >
+            Add To Cart
+          </button>
+        </div>
       </div>
     </div>
   );
