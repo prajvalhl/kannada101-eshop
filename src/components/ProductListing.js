@@ -223,8 +223,8 @@ export function ProductListing() {
           onClick={() => setShowFilter(false)}
         >
           {filteredData.map((prod) => (
-            <div className="card-vertical">
-              <Link to={`/product`}>
+            <div className="card-vertical" key={prod.id}>
+              <Link to={`/product/${prod.id}`}>
                 <img
                   className={`card-vertical-thumbnail ${
                     !prod.inStock ? "out-of-stock-image" : undefined
@@ -240,7 +240,9 @@ export function ProductListing() {
                 OUT <br /> OF <br /> STOCK
               </p>
               <div>
-                <p className="ptext p-head">{prod.name}</p>
+                <p className="ptext p-head">
+                  <Link to={`/product/${prod.id}`}>{prod.name}</Link>
+                </p>
                 <div
                   className="rating vertical-rating"
                   style={{ backgroundColor: giveRatingsBgColor(prod.ratings) }}
