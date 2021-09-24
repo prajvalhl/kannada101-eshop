@@ -2,6 +2,7 @@ import React, { useReducer, useState } from "react";
 import { data } from "../data";
 import { useCart } from "../cart-context";
 import { giveRatingsBgColor } from "../cart-context";
+import { Link } from "react-router-dom";
 
 function sortProducts(state, action) {
   switch (action.type) {
@@ -223,13 +224,15 @@ export function ProductListing() {
         >
           {filteredData.map((prod) => (
             <div className="card-vertical">
-              <img
-                className={`card-vertical-thumbnail ${
-                  !prod.inStock ? "out-of-stock-image" : undefined
-                }`}
-                src={prod.image}
-                alt={prod.name}
-              />
+              <Link to={`/product`}>
+                <img
+                  className={`card-vertical-thumbnail ${
+                    !prod.inStock ? "out-of-stock-image" : undefined
+                  }`}
+                  src={prod.image}
+                  alt={prod.name}
+                />
+              </Link>
               <p
                 style={{ display: !prod.inStock ? "block" : "none" }}
                 className="out-of-stock-text"

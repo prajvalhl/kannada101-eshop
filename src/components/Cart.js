@@ -1,22 +1,23 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useCart } from "../cart-context";
-import { useNav } from "../navigation-context";
 import { giveRatingsBgColor } from "../cart-context";
 
 function CartEmpty() {
-  const { setRoute } = useNav();
-
   return (
     <div className="cart-empty-banner">
       <p className="fs fs-1">Your Cart is empty.</p>
       <p className="fs fs-4">
         Check your Wish List or{" "}
-        <span
+        {/* <span
           className="cart-empty-continue-shopping"
           onClick={() => setRoute("product")}
         >
           continue shopping
-        </span>
+        </span> */}
+        <Link to="/" className="cart-empty-continue-shopping">
+          continue shopping
+        </Link>
         .
       </p>
     </div>

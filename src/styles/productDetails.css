@@ -1,0 +1,35 @@
+.product-details {
+  max-width: 80%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+}
+
+.pd-image-container {
+  width: 20rem;
+  height: 25rem;
+  margin-right: 1rem;
+}
+
+.pd-details-container {
+  margin-left: 1rem;
+}
+
+@media (max-width: 500px) {
+  .product-details {
+    max-height: 95%;
+    height: auto;
+    flex-direction: column;
+    padding-bottom: 5rem;
+  }
+
+  .pd-image-container {
+    height: auto;
+    margin-right: 0;
+    margin: 0 auto;
+  }
+
+  .pd-details-container {
+    margin-left: 0;
+  }
+}

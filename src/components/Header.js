@@ -1,10 +1,9 @@
 import React from "react";
 import { useCart } from "../cart-context";
-import { useNav } from "../navigation-context";
+import { Link } from "react-router-dom";
 
 export function Header() {
   const { state } = useCart();
-  const { setRoute } = useNav();
 
   const totalCartItems = state.reduce((acc, value) => {
     return (acc += value.quantity);
@@ -12,22 +11,24 @@ export function Header() {
 
   return (
     <div className="header">
-      <p
-        className="brand-title"
-        onClick={() => {
-          setRoute("product");
-          window.scrollTo(0, 0);
-        }}
-      >
-        KannadaClass101
+      <p>
+        <Link
+          className="brand-title"
+          to="/"
+          onClick={() => {
+            window.scrollTo(0, 0);
+          }}
+        >
+          KannadaClass101
+        </Link>
       </p>
       <div>
-        <button onClick={() => setRoute("cart")} className="btn-show-cart">
+        <Link to="/cart" className="btn-show-cart">
           <span className="material-icons"> shopping_cart </span>
           {state.length > 0 && (
             <span className="icon-badge">{totalCartItems}</span>
           )}
-        </button>
+        </Link>
       </div>
     </div>
   );
