@@ -224,7 +224,10 @@ export function ProductListing() {
         >
           {filteredData.map((prod) => (
             <div className="card-vertical" key={prod.id}>
-              <Link to={`/product/${prod.id}`}>
+              <Link
+                to={`/product/${prod.id}`}
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 <img
                   className={`card-vertical-thumbnail ${
                     !prod.inStock ? "out-of-stock-image" : undefined
@@ -241,7 +244,12 @@ export function ProductListing() {
               </p>
               <div>
                 <p className="ptext p-head">
-                  <Link to={`/product/${prod.id}`}>{prod.name}</Link>
+                  <Link
+                    to={`/product/${prod.id}`}
+                    onClick={() => window.scrollTo(0, 0)}
+                  >
+                    {prod.name}
+                  </Link>
                 </p>
                 <div
                   className="rating vertical-rating"

@@ -2,7 +2,7 @@ import React from "react";
 import { data } from "../data";
 import { giveRatingsBgColor } from "../cart-context";
 import { useCart } from "../cart-context";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "../styles/productDetails.css";
 
 export function ProductDetails() {
@@ -51,14 +51,17 @@ export function ProductDetails() {
           quaerat magnam, ex eaque vel saepe. Amet, mollitia?
         </p>
         <div className="pd-buttons">
-          <a
+          {/* <a
             className="link link-primary"
             href="/buy"
-            // target="_blank"
+            target="_blank"
             rel="noreferrer"
           >
             Buy
-          </a>
+          </a> */}
+          <Link className="link link-primary" to="/buy">
+            Buy
+          </Link>
           <button
             className={`link link-secondary ${
               !product.inStock && "add-to-cart-out-of-stock"
