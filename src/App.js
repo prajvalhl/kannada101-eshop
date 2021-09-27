@@ -2,6 +2,7 @@ import React from "react";
 import { Header } from "./components/Header";
 import { ProductListing } from "./components/ProductListing";
 import { Cart } from "./components/Cart";
+import { WishList } from "./components/WishList";
 import { Footer } from "./components/Footer";
 import { ProductDetails } from "./components/ProductDetails";
 import { NotFound } from "./components/NotFound";
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ProductListing />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/wishlist" element={<WishList />} />
         <Route path="/product/:productId" element={<ProductDetails />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -1,9 +1,12 @@
 import React from "react";
 import { useCart } from "../cart-context";
+import { useWishList } from "../wishlist-context";
 import { Link } from "react-router-dom";
 
 export function Header() {
   const { state } = useCart();
+  const { wishListData } = useWishList();
+  const filteredWishList = wishListData.filter((product) => product.inWishList);
 
   const totalCartItems = state.reduce((acc, value) => {
     return (acc += value.quantity);
@@ -23,10 +26,10 @@ export function Header() {
         </Link>
       </p>
       <div>
-        <Link to="/cart" className="btn-show-icon">
+        <Link to="/wishlist" className="btn-show-icon">
           <span className="material-icons"> favorite_border </span>
-          {state.length > 0 && (
-            <span className="icon-badge">{totalCartItems}</span>
+          {filteredWishList.length > 0 && (
+            <span className="icon-badge">{filteredWishList.length}</span>
           )}
         </Link>
         <Link to="/cart" className="btn-show-icon">

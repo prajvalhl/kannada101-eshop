@@ -1,6 +1,7 @@
 import React, { useReducer, useState } from "react";
 import { data } from "../data";
 import { useCart } from "../cart-context";
+import { useWishList } from "../wishlist-context";
 import { giveRatingsBgColor } from "../cart-context";
 import { Link } from "react-router-dom";
 
@@ -66,6 +67,7 @@ function getFliteredData2(productsList, rangeVal) {
 
 export function ProductListing() {
   const { cartDispatch } = useCart();
+  const { wishListDispatch } = useWishList();
   const [showFilter, setShowFilter] = useState(false);
 
   const [
@@ -265,7 +267,7 @@ export function ProductListing() {
                 <button
                   className="btn btn-primary btn-icon add-to-wishlist"
                   onClick={() =>
-                    cartDispatch({ type: "ADD_TO_CART", product: prod })
+                    wishListDispatch({ type: "ADD_TO_WISHLIST", product: prod })
                   }
                 >
                   <span className="material-icons"> favorite </span>
