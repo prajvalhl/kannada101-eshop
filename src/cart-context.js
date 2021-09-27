@@ -54,8 +54,10 @@ function cartReducer(state, payload) {
 }
 
 export function CartProvider({ children }) {
-  const [state, dispatch] = useReducer(cartReducer, []);
-  return <Cart.Provider value={{ state, dispatch }}>{children}</Cart.Provider>;
+  const [state, cartDispatch] = useReducer(cartReducer, []);
+  return (
+    <Cart.Provider value={{ state, cartDispatch }}>{children}</Cart.Provider>
+  );
 }
 
 export function useCart() {

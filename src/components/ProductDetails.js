@@ -8,7 +8,7 @@ import "../styles/productDetails.css";
 export function ProductDetails() {
   const { productId } = useParams();
   const product = data.find((product) => product.id === Number(productId));
-  const { dispatch } = useCart();
+  const { cartDispatch } = useCart();
 
   return (
     <div className="product-details">
@@ -69,7 +69,9 @@ export function ProductDetails() {
             className={`link link-secondary ${
               !product.inStock && "add-to-cart-out-of-stock"
             }`}
-            onClick={() => dispatch({ type: "ADD_TO_CART", product: product })}
+            onClick={() =>
+              cartDispatch({ type: "ADD_TO_CART", product: product })
+            }
             disabled={!product.inStock}
           >
             Add To Cart

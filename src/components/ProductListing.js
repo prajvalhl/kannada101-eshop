@@ -65,7 +65,7 @@ function getFliteredData2(productsList, rangeVal) {
 }
 
 export function ProductListing() {
-  const { dispatch } = useCart();
+  const { cartDispatch } = useCart();
   const [showFilter, setShowFilter] = useState(false);
 
   const [
@@ -265,7 +265,7 @@ export function ProductListing() {
                 <button
                   className="btn btn-primary btn-icon add-to-wishlist"
                   onClick={() =>
-                    dispatch({ type: "ADD_TO_CART", product: prod })
+                    cartDispatch({ type: "ADD_TO_CART", product: prod })
                   }
                 >
                   <span className="material-icons"> favorite </span>
@@ -275,7 +275,7 @@ export function ProductListing() {
                     !prod.inStock && "add-to-cart-out-of-stock"
                   }`}
                   onClick={() =>
-                    dispatch({ type: "ADD_TO_CART", product: prod })
+                    cartDispatch({ type: "ADD_TO_CART", product: prod })
                   }
                   disabled={!prod.inStock}
                 >

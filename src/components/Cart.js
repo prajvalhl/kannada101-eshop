@@ -19,7 +19,7 @@ function CartEmpty() {
 }
 
 export function Cart() {
-  const { state, dispatch } = useCart();
+  const { state, cartDispatch } = useCart();
 
   const total = state.reduce((acc, value) => {
     return value.quantity && (acc = acc + value.quantity * value.price);
@@ -66,7 +66,7 @@ export function Cart() {
                   <button
                     className="btn-hCard"
                     onClick={() =>
-                      dispatch({
+                      cartDispatch({
                         type: "DECREMENT",
                         itemDetail: { id: cart.id, quantity: cart.quantity },
                       })
@@ -77,13 +77,17 @@ export function Cart() {
                   <span className="qty_btw_inc_dec">{cart.quantity}</span>
                   <button
                     className="btn-hCard"
-                    onClick={() => dispatch({ type: "INCREMENT", id: cart.id })}
+                    onClick={() =>
+                      cartDispatch({ type: "INCREMENT", id: cart.id })
+                    }
                   >
                     +
                   </button>
                   <button
                     className="btn-hCard h-remove"
-                    onClick={() => dispatch({ type: "REMOVE", id: cart.id })}
+                    onClick={() =>
+                      cartDispatch({ type: "REMOVE", id: cart.id })
+                    }
                   >
                     Remove
                   </button>
