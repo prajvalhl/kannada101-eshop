@@ -17,6 +17,9 @@ export function ProductDetails() {
         src={product.image}
         alt={product.image}
       />
+      <button className="btn btn-primary btn-icon add-to-wishlist pd-wishlist">
+        <span className="material-icons"> favorite </span>
+      </button>
       <div className="pd-details-container">
         <h3>{product.name}</h3>
         <p>sold by {product.brand}</p>

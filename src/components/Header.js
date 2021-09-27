@@ -23,7 +23,13 @@ export function Header() {
         </Link>
       </p>
       <div>
-        <Link to="/cart" className="btn-show-cart">
+        <Link to="/cart" className="btn-show-icon">
+          <span className="material-icons"> favorite_border </span>
+          {state.length > 0 && (
+            <span className="icon-badge">{totalCartItems}</span>
+          )}
+        </Link>
+        <Link to="/cart" className="btn-show-icon">
           <span className="material-icons"> shopping_cart </span>
           {state.length > 0 && (
             <span className="icon-badge">{totalCartItems}</span>
