@@ -76,7 +76,10 @@ export function WishList() {
                   wishListDispatch({ type: "ADD_TO_WISHLIST", product: prod })
                 }
               >
-                <span className="material-icons"> favorite </span>
+                <span className="material-icons" style={{ color: "#ef4444" }}>
+                  {" "}
+                  favorite{" "}
+                </span>
               </button>
               <button
                 className={`btn btn-primary btn-icon add-to-cart ${

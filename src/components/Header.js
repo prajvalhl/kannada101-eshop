@@ -3,10 +3,12 @@ import { useCart } from "../cart-context";
 import { useWishList } from "../wishlist-context";
 import { Link } from "react-router-dom";
 
+export let filteredWishList;
+
 export function Header() {
   const { state } = useCart();
   const { wishListData } = useWishList();
-  const filteredWishList = wishListData.filter((product) => product.inWishList);
+  filteredWishList = wishListData.filter((product) => product.inWishList);
 
   const totalCartItems = state.reduce((acc, value) => {
     return (acc += value.quantity);

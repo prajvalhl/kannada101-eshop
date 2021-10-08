@@ -4,6 +4,7 @@ import { useCart } from "../cart-context";
 import { useWishList } from "../wishlist-context";
 import { giveRatingsBgColor } from "../cart-context";
 import { Link } from "react-router-dom";
+import { filteredWishList } from "./Header";
 
 function sortProducts(state, action) {
   switch (action.type) {
@@ -270,7 +271,19 @@ export function ProductListing() {
                     wishListDispatch({ type: "ADD_TO_WISHLIST", product: prod })
                   }
                 >
-                  <span className="material-icons"> favorite </span>
+                  <span
+                    className="material-icons"
+                    style={{
+                      color: filteredWishList.find(
+                        (item) => item.id === prod.id
+                      )
+                        ? "#ef4444"
+                        : "black",
+                    }}
+                  >
+                    {" "}
+                    favorite{" "}
+                  </span>
                 </button>
                 <button
                   className={`btn btn-primary btn-icon add-to-cart ${
