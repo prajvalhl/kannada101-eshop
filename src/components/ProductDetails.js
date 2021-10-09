@@ -2,6 +2,7 @@ import React from "react";
 import { data } from "../data";
 import { giveRatingsBgColor } from "../cart-context";
 import { useCart } from "../cart-context";
+import { useWishList } from "../wishlist-context";
 import { Link, useParams } from "react-router-dom";
 import "../styles/productDetails.css";
 
@@ -9,6 +10,8 @@ export function ProductDetails() {
   const { productId } = useParams();
   const product = data.find((product) => product.id === Number(productId));
   const { cartDispatch } = useCart();
+  const { wishListData, wishListDispatch } = useWishList();
+  const filteredWishList = wishListData.filter((product) => product.inWishList);
 
   return (
     <div className="product-details">
@@ -17,8 +20,23 @@ export function ProductDetails() {
         src={product.image}
         alt={product.image}
       />
-      <button className="btn btn-primary btn-icon add-to-wishlist pd-wishlist">
-        <span className="material-icons"> favorite </span>
+      <button
+        className="btn btn-primary btn-icon add-to-wishlist pd-wishlist"
+        onClick={() =>
+          wishListDispatch({ type: "ADD_TO_WISHLIST", product: product })
+        }
+      >
+        <span
+          className="material-icons"
+          style={{
+            color: filteredWishList.find((item) => item.id === product.id)
+              ? "#ef4444"
+              : "black",
+          }}
+        >
+          {" "}
+          favorite{" "}
+        </span>
       </button>
       <div className="pd-details-container">
         <h3>{product.name}</h3>
