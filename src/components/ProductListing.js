@@ -4,7 +4,6 @@ import { useCart } from "../cart-context";
 import { useWishList } from "../wishlist-context";
 import { giveRatingsBgColor } from "../cart-context";
 import { Link } from "react-router-dom";
-import { filteredWishList } from "./Header";
 
 function sortProducts(state, action) {
   switch (action.type) {
@@ -68,8 +67,9 @@ function getFliteredData2(productsList, rangeVal) {
 
 export function ProductListing() {
   const { cartDispatch } = useCart();
-  const { wishListDispatch } = useWishList();
+  const { wishListData, wishListDispatch } = useWishList();
   const [showFilter, setShowFilter] = useState(false);
+  const filteredWishList = wishListData.filter((product) => product.inWishList);
 
   const [
     {
