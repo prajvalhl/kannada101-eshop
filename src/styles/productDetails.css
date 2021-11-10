@@ -50,6 +50,7 @@
   border: 1px solid var(--primary-color);
   max-width: 140px;
   cursor: pointer;
+  font-size: 0.9rem;
 }
 
 .link:hover {
